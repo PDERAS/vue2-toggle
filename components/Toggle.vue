@@ -9,6 +9,8 @@
 </template>
 
 <script>
+    import defaults from '../options';
+
     export default {
         name: 'toggle',
 
