@@ -15,12 +15,12 @@
         props: {
             altColor: {
                 type: String,
-                default: "#ccc"
+                default: () => defaults.altColor
             },
 
             color: {
                 type: String,
-                default: "#2196F3"
+                default: () => defaults.color
             },
 
             disabled: {
@@ -38,7 +38,7 @@
                 validate(val) {
                     return val == 'round' || val == 'rectangle';
                 },
-                default: 'round'
+                default: () => defaults.type
             },
 
             value: {

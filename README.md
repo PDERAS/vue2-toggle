@@ -5,7 +5,7 @@ A vue.js component for a toggle input.
 Vue toggle is built as a vue plugin. It can be initialized just as the Vue documentation states.
 
 ```javascript
-import Toggle from "vue2-toggle";
+import Toggle from "@pderas/vue2-toggle";
 
 Vue.use(Toggle, {
     altColor:   '#ccc',     // default
