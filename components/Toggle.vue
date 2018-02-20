@@ -2,7 +2,7 @@
     <div class="toggle-wrapper">
         <!-- Rounded switch -->
         <label class="switch">
-            <input :id="id" type="checkbox" ref="input" :value="value" :disabled="disabled" @click="update" :style="setColorStyles()">
+            <input type="checkbox" ref="input" :checked="value" :disabled="disabled" :id="id" :style="setColorStyles()" :value="value" @click="update">
             <span class="slider" :class="[ type == 'round' ? 'round' : null ]" :style="setColorStyles()"></span>
         </label>
     </div>
