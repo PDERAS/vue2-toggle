@@ -4,6 +4,10 @@
         <label class="switch">
             <input type="checkbox" ref="input" :checked="value" :disabled="disabled" :id="id" :style="setColorStyles()" :value="value" @click="update">
             <span class="slider" :class="[ type == 'round' ? 'round' : null ]" :style="setColorStyles()"></span>
+            <template v-if="useLabels">
+                <span class="checkbox-label left" v-if="value">On</span>
+                <span class="checkbox-label right" v-if="!value">Off</span>
+            </template>
         </label>
     </div>
 </template>
@@ -41,6 +45,11 @@
                     return val == 'round' || val == 'rectangle';
                 },
                 default: () => defaults.type
+            },
+
+            useLabels: {
+                type: Boolean,
+                default: () => defaults.useLabels
             },
 
             value: {
@@ -120,5 +129,23 @@
 
     .slider.round:before {
         border-radius:      50%;
+    }
+
+    .toggle-wrapper > .switch > .checkbox-label {
+        color: white;
+        position: absolute;
+        font-size: 12px;
+    }
+
+    .toggle-wrapper > .switch > .checkbox-label.left, .checkbox-label.right {
+        top: 3px;
+    }
+
+    .toggle-wrapper > .switch > .checkbox-label.left {
+        left: 4px;
+    }
+
+    .toggle-wrapper > .switch > .checkbox-label.right {
+        right: 4px;
     }
 </style>
