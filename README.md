@@ -7,11 +7,16 @@ Vue toggle is built as a vue plugin. It can be initialized just as the Vue docum
 ```javascript
 import Toggle from "@pderas/vue2-toggle";
 
+// defaults
 Vue.use(Toggle, {
-    altColor:   '#ccc',     // default
-    color:      '#2196F3',  // default
-    useLabels:  true,       // default
-    type:       'round'     // default
+    altColor:   '#ccc',
+    color:      '#2196F3',
+    labels:     {
+        true_label:     'On',
+        false_label:    'Off'
+    },
+    useLabels:  true,
+    type:       'round'
 });
 ```
 ## Usage
@@ -23,13 +28,14 @@ A vue toggle is easily created and can be bound to data with v-model.<br>
 ```
 
 ## Properties
-| Property   | Required | Type    | Default   | Description                                   |
-|------------|----------|---------|-----------|-----------------------------------------------|
-| alt-color  | false    | String  | '#ccc'    | The color of the toggle when unchecked        |
-| color      | false    | String  | '#2196F3' | The color of the toggle when checked          |
-| type       | false    | String  | 'round'   | The type of style to use for the toggle       |
-| use-labels | false    | Boolean | true      | Use on/off labels on the toggle               |
-| value      | false    | Boolean | false     | Value for the input, can be used with v-model |
+| Property   | Required | Type    | Default                                  | Description                                   |
+|------------|----------|---------|------------------------------------------|-----------------------------------------------|
+| alt-color  | false    | String  | '#ccc'                                   | The color of the toggle when unchecked        |
+| color      | false    | String  | '#2196F3'                                | The color of the toggle when checked          |
+| labels     | false    | Object  | { true_label: 'on', false_label: 'off' } | The labels to use when use-labels is enabled  |
+| type       | false    | String  | 'round'                                  | The type of style to use for the toggle       |
+| use-labels | false    | Boolean | true                                     | Use on/off labels on the toggle               |
+| value      | false    | Boolean | false                                    | Value for the input, can be used with v-model |
 
 ##### Available Types
 1. round
