@@ -5,8 +5,8 @@
             <input type="checkbox" ref="input" :checked="value" :disabled="disabled" :id="id" :style="setColorStyles()" :value="value" @click="update">
             <span class="slider" :class="[ type == 'round' ? 'round' : null ]" :style="setColorStyles()"></span>
             <template v-if="useLabels">
-                <span class="checkbox-label left" v-if="value">On</span>
-                <span class="checkbox-label right" v-if="!value">Off</span>
+                <span class="checkbox-label left" v-if="value">{{ labels.true_label }}</span>
+                <span class="checkbox-label right" v-if="!value">{{ labels.false_label }}</span>
             </template>
         </label>
     </div>
@@ -37,6 +37,14 @@
             id: {
                 type: String,
                 default: null
+            },
+
+            labels: {
+                type: Object,
+                validate(obj) {
+                    return 'true_label' in obj && 'false_label' in obj;
+                },
+                default: () => defaults.labels
             },
 
             type: {
