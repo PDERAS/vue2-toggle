@@ -21,12 +21,16 @@
         props: {
             altColor: {
                 type: String,
-                default: () => defaults.altColor
+                default: function() {
+                    return defaults.altColor;
+                }
             },
 
             color: {
                 type: String,
-                default: () => defaults.color
+                default: function() {
+                    return defaults.color;
+                }
             },
 
             disabled: {
@@ -41,23 +45,29 @@
 
             labels: {
                 type: Object,
-                validate(obj) {
+                validator: function(obj) {
                     return 'true_label' in obj && 'false_label' in obj;
                 },
-                default: () => defaults.labels
+                default: function() {
+                    return defaults.labels;
+                }
             },
 
             type: {
                 type: String,
-                validate(val) {
+                validator: function(val) {
                     return val == 'round' || val == 'rectangle';
                 },
-                default: () => defaults.type
+                default: function() {
+                    return defaults.type;
+                }
             },
 
             useLabels: {
                 type: Boolean,
-                default: () => defaults.useLabels
+                default: function() {
+                    return defaults.useLabels;
+                }
             },
 
             value: {
@@ -67,7 +77,7 @@
         },
 
         methods: {
-            setColorStyles() {
+            setColorStyles: function() {
                 if (this.value) {
                     return 'background-color: ' + this.color + ';';
                 } else {
@@ -75,7 +85,7 @@
                 }
             },
 
-            update() {
+            update: function() {
                 this.$refs.input.value = !this.value;
                 this.$emit('input', !this.value);
             }
